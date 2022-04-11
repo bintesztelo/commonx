@@ -10,11 +10,16 @@
 }
 {
 Sample code:
+procedure TForm1.lSWC1DataEvent(Sender: TObject; const Text: string);
+begin
+ Form1.smemo1.Lines.Add(text);
+end;
+
 //var lSWC:TIdSimpleWebSocketClient;
 ...
 begin
   lSWC := TIdSimpleWebSocketClient.Create(self);
-  lSWC.onDataEvent           := self.lSWC1DataEvent;  //TSWSCDataEvent
+  lSWC.onDataEvent           := self.lSWC1DataEvent;  //TSWSCDataEvent   //lSWC.onDataEvent := lSWC1DataEvent;
   lSWC.AutoCreateHandler := false; //you can set this as true in the majority of Websockets with ssl
   if not lSWC.AutoCreateHandler then
   begin
